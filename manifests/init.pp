@@ -61,11 +61,11 @@ class tuned (
     if $profile {
       file { 'profile_mode':
         ensure  => file,
-        path    => "${profile_mode}/profile_mode",
+        path    => "${profile_path}/profile_mode",
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        content => 'manual',
+        content => "manual\n",
         require => Anchor['profile_downloaded'],
       } ->
       file { 'current_profile' :
